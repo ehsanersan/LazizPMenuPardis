@@ -19,71 +19,64 @@
  */
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// مسیرساز — BASE_URL به صورت خودکار از vite.config.ts خوانده می‌شود
-// (روی GitHub Pages می‌شود "/LazizPMenuPardis/" و در حالت محلی "/")
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-const img = (path: string): string => import.meta.env.BASE_URL + "images/" + path;
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // مسیر‌های اصلی تصاویر — همه مسیرها فقط اینجا تعریف می‌شوند
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 export const siteImages = {
   /** لوگوی لذیذ */
-  logo: img("logo/laziz-logo.png"),
+  logo: "/images/logo/laziz-logo.png",
 
   /** تصویر پس‌زمینه Hero */
-  hero: img("hero/hero-cover.jpg"),
+  hero: "/images/hero/hero-cover.jpg",
 
   /** تصاویر صبحانه */
   breakfast: {
-    creamHoney:            img("breakfast/cream-honey.jpg"),
-    cheeseTomatoCucumber:  img("breakfast/cheese-tomato-cucumber.jpg"),
-    boiledEggTomato:       img("breakfast/boiled-egg-tomato.jpg"),
-    sesameHoneyCream:      img("breakfast/sesame-honey-cream.jpg"),
-    halvaCheese:           img("breakfast/halva-cheese.jpg"),
+    creamHoney:            "/images/breakfast/cream-honey.jpg",
+    cheeseTomatoCucumber:  "/images/breakfast/cheese-tomato-cucumber.jpg",
+    boiledEggTomato:       "/images/breakfast/boiled-egg-tomato.jpg",
+    sesameHoneyCream:      "/images/breakfast/sesame-honey-cream.jpg",
+    halvaCheese:           "/images/breakfast/halva-cheese.jpg",
   },
 
   /** تصاویر ناهار */
   lunch: {
-    ghormehSabzi:         img("lunch/ghormeh-sabzi.jpg"),
-    zereshkPoloChicken:   img("lunch/zereshk-polo-chicken.jpg"),
-    loobiaPolo:           img("lunch/loobia-polo.jpg"),
-    koobideh:             img("lunch/koobideh.jpg"),
-    shirFish:             img("lunch/shir-fish.jpg"),
-    gheimeh:              img("lunch/gheimeh.jpg"),
-    bandariPolo:          img("lunch/bandari-polo.jpg"),
-    mosammaBademjan:      img("lunch/mosamma-bademjan.jpg"),
-    adasPolo:             img("lunch/adas-polo.jpg"),
-    joojehKabab:          img("lunch/joojeh-kabab.jpg"),
-    shrimpRice:           img("lunch/shrimp-rice.jpg"),
+    ghormehSabzi:         "/images/lunch/ghormeh-sabzi.jpg",
+    zereshkPoloChicken:   "/images/lunch/zereshk-polo-chicken.jpg",
+    loobiaPolo:           "/images/lunch/loobia-polo.jpg",
+    koobideh:             "/images/lunch/koobideh.jpg",
+    shirFish:             "/images/lunch/shir-fish.jpg",
+    gheimeh:              "/images/lunch/gheimeh.jpg",
+    bandariPolo:          "/images/lunch/bandari-polo.jpg",
+    mosammaBademjan:      "/images/lunch/mosamma-bademjan.jpg",
+    adasPolo:             "/images/lunch/adas-polo.jpg",
+    joojehKabab:          "/images/lunch/joojeh-kabab.jpg",
+    shrimpRice:           "/images/lunch/shrimp-rice.jpg",
   },
 
   /** تصاویر شام */
   dinner: {
-    lasagna:              img("dinner/lasagna.jpg"),
-    chickenSteak:         img("dinner/chicken-steak.jpg"),
-    macaroni:             img("dinner/macaroni.jpg"),
-    koobidehMeal:         img("dinner/koobideh-meal.jpg"),
-    chickenPiroshki:      img("dinner/chicken-piroshki.jpg"),
-    meatCutlet:           img("dinner/meat-cutlet.jpg"),
-    joojehMeal:           img("dinner/joojeh-meal.jpg"),
-    chickenVegetables:    img("dinner/chicken-vegetables.jpg"),
+    lasagna:              "/images/dinner/lasagna.jpg",
+    chickenSteak:         "/images/dinner/chicken-steak.jpg",
+    macaroni:             "/images/dinner/macaroni.jpg",
+    koobidehMeal:         "/images/dinner/koobideh-meal.jpg",
+    chickenPiroshki:      "/images/dinner/chicken-piroshki.jpg",
+    meatCutlet:           "/images/dinner/meat-cutlet.jpg",
+    joojehMeal:           "/images/dinner/joojeh-meal.jpg",
+    chickenVegetables:    "/images/dinner/chicken-vegetables.jpg",
   },
 
   /** تصاویر بسته‌بندی (اسلایدر) */
   packaging: [
-    img("packaging/packaging-01.jpg"),
-    img("packaging/packaging-02.jpg"),
-    img("packaging/packaging-03.jpg"),
-    img("packaging/packaging-04.jpg"),
+    "/images/packaging/packaging-01.jpg",
+    "/images/packaging/packaging-02.jpg",
+    "/images/packaging/packaging-03.jpg",
+    "/images/packaging/packaging-04.jpg",
   ] as const,
 
   /** تصاویر عمومی / Placeholder */
   general: {
-    placeholderFood:  img("general/placeholder-food.jpg"),
-    placeholderLogo:  img("general/placeholder-logo.png"),
+    placeholderFood:  "/images/general/placeholder-food.jpg",
+    placeholderLogo:  "/images/general/placeholder-logo.png",
   },
 };
 
@@ -192,4 +185,3 @@ export function getAdminImage(key: string): string {
   if (!entry) return siteImages.general.placeholderFood;
   return resolveImage(entry.path, key);
 }
-
