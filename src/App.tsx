@@ -68,7 +68,7 @@ export default function App() {
         {/* Section Title */}
         <div className="text-center mb-8 px-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3">
-            برنامه غذایی ۱۴ روزه
+            منوی غذایی
           </h2>
           <p className="text-white/40 text-sm sm:text-base max-w-xl mx-auto">
             شامل صبحانه، ناهار و شام
