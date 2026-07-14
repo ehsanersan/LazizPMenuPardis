@@ -156,4 +156,40 @@ export const adminImageList: AdminImageEntry[] = [
   { key: "l.mosammaBademjan",     path: siteImages.lunch.mosammaBademjan,     label: "چلو خورشت مسما بادمجان" },
   { key: "l.adasPolo",            path: siteImages.lunch.adasPolo,            label: "عدس‌پلو" },
   { key: "l.joojehKabab",         path: siteImages.lunch.joojehKabab,         label: "چلو جوجه‌کباب" },
-  { key: "l.shrimpRice",          path: siteImages.
+  { key: "l.shrimpRice",          path: siteImages.lunch.shrimpRice,          label: "چلو میگو" },
+  // شام
+  { key: "d.lasagna",             path: siteImages.dinner.lasagna,            label: "لازانیا" },
+  { key: "d.chickenSteak",        path: siteImages.dinner.chickenSteak,       label: "خوراک استیک مرغ" },
+  { key: "d.macaroni",            path: siteImages.dinner.macaroni,           label: "ماکارونی" },
+  { key: "d.koobidehMeal",        path: siteImages.dinner.koobidehMeal,       label: "خوراک کباب کوبیده" },
+  { key: "d.chickenPiroshki",     path: siteImages.dinner.chickenPiroshki,    label: "پیراشکی مرغ" },
+  { key: "d.meatCutlet",          path: siteImages.dinner.meatCutlet,         label: "خوراک کتلت گوشت" },
+  { key: "d.joojehMeal",          path: siteImages.dinner.joojehMeal,         label: "خوراک جوجه‌کباب" },
+  { key: "d.chickenVegetables",   path: siteImages.dinner.chickenVegetables,  label: "خوراک مرغ و سبزیجات" },
+  // بسته‌بندی
+  { key: "p.1", path: siteImages.packaging[0], label: "تصویر بسته‌بندی ۱" },
+  { key: "p.2", path: siteImages.packaging[1], label: "تصویر بسته‌بندی ۲" },
+  { key: "p.3", path: siteImages.packaging[2], label: "تصویر بسته‌بندی ۳" },
+  { key: "p.4", path: siteImages.packaging[3], label: "تصویر بسته‌بندی ۴" },
+];
+
+export const adminCategories = {
+  general:   { label: "عمومی",     keys: ["logo", "hero"] },
+  breakfast: { label: "صبحانه",    keys: adminImageList.filter(e => e.key.startsWith("b.")).map(e => e.key) },
+  lunch:     { label: "ناهار",     keys: adminImageList.filter(e => e.key.startsWith("l.")).map(e => e.key) },
+  dinner:    { label: "شام",       keys: adminImageList.filter(e => e.key.startsWith("d.")).map(e => e.key) },
+  packaging: { label: "بسته‌بندی", keys: adminImageList.filter(e => e.key.startsWith("p.")).map(e => e.key) },
+};
+
+/** دریافت entry ادمین با کلید */
+export function getAdminEntry(key: string): AdminImageEntry | undefined {
+  return adminImageList.find(e => e.key === key);
+}
+
+/** دریافت تصویر ادمین (localStorage → فایل محلی) */
+export function getAdminImage(key: string): string {
+  const entry = getAdminEntry(key);
+  if (!entry) return siteImages.general.placeholderFood;
+  return resolveImage(entry.path, key);
+}
+
